@@ -1,12 +1,29 @@
 // DEPENDENCIES
-// require express library
+// import express
 const express = require('express');
-const app = express();
-// require express layouts
+// import express layouts
 const expressLayouts = require('express-ejs-layouts')
-
 // tell server where our controllers/routers are
 const indexRouter = require('./controllers/index')
+//begins and initiallized our express framework (kinda 'starts' the server)
+const app = express();
+
+// import mongoose
+const mongoose = require('mongoose');
+//tells mongoose what databse to try and connect to. establishes how our backend server communicates with the back end database
+mongoose.connect('mongodb://localhost:27017/basiccrud', {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+});
+
+//double-check that we connected to mongoose
+mongoose.connection.on('error', () => {
+    console.log('Error connecting to mongoose database...')
+})
+mongoose.connection.once('open', () => {
+    console.log('Connected to mongoose database')
+})
 
 // tells us what view file format to use
 app.set('view engine', 'ejs')
@@ -31,7 +48,6 @@ app.use(express.static('public'))
 // tell server which router/controller to use for which path
 app.use('/', indexRouter)
 
-const mongoose = require('mongoose');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const bcrypt = require('bcrypt');
