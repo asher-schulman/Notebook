@@ -1,1 +1,11 @@
-All todolist items
+<h2>All To-Do List Items</h2>
+<br>
+<% todolist.forEach(todolist => { %>
+    <div>
+        <h4><%= todolist.item %>
+        <input type="checkbox" name="isComplete" value="isComplete">
+        <button><a href="/todolist/<%= todolist.id %>/edit">Edit</a></button>
+        <button><a href="/todolist/<%= todolist.id %>/delete">Delete</a></button>
+        </h4>
+    </div>
+<% }) %>

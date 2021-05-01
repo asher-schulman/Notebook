@@ -3,14 +3,21 @@ const router = express.Router()
 const List = require('../models/todolist')
 
 // all lists route
-router.get('/', (req, res) => {
-    res.render('todolist/index')
+router.get('/', async (req, res) => {
+    try {
+        const todolist = await List.find({})
+        res.render('todolist/index', {
+            todolist: todolist
+        })
+    } catch {
+        res.redirect('/')
+    }
 })
 
 // new list item route (just displays form)
 router.get('/new', (req, res) => {
     res.render('todolist/new', {
-        List: new List()
+        List: List
     })
 })
 
@@ -23,7 +30,7 @@ router.post('/', async (req, res) => {
     try {
         const newItem = await todolist.save()
         res.redirect('todolist')
-        // res.redirect(`todolist/${todolist.id}`)
+        // res.redirect(`todolist/${newItem.id}`)
     } catch {
         res.render('todolist/new', {
             todolist: todolist,
