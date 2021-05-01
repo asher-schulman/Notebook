@@ -8,7 +8,7 @@ const indexRouter = require('./controllers/index')
 const todolistRouter = require('./controllers/todolist')
 
 // DB urls use whichever one works, probably local for now
-const DATABASE_URL = 'mongodb://localhost:27017/todolist'
+// const DATABASE_URL = 'mongodb://localhost:27017/todolist'
 // const DATABASE_URL = 'mongodb+srv://user:JHhXYBIIR0N0CWUu@todolist.svlcm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 //begins and initiallized our express framework (kinda 'starts' the server)
 const app = express();
@@ -16,7 +16,7 @@ const app = express();
 // import mongoose
 const mongoose = require('mongoose');
 //tells mongoose what databse to try and connect to. establishes how our backend server communicates with the back end database
-mongoose.connect(DATABASE_URL, {
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/todolist', {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true
@@ -42,12 +42,12 @@ app.set('layout', 'layouts/layout')
 app.use(express.urlencoded({
     extended: true
 }));
+// maybe needing json parser?
+app.use(express.json())
 // tell express we want to use express layouts
 app.use(expressLayouts)
 // tell express where public files will be
 app.use(express.static('public'))
-// maybe needing json parser?
-// app.use(express.json())
 // tell server which router/controller to use for which path
 app.use('/', indexRouter)
 app.use('/todolist', todolistRouter)
@@ -64,6 +64,6 @@ app.use(express.urlencoded({
 }));
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT||3000), () => {
     console.log(`listening on port 3000`)
-})
+}
