@@ -37,8 +37,6 @@ app.set('views', __dirname + '/views')
 // let's us know where layout file is
 app.set('layout', 'layouts/layout')
 
-
-
 // MIDDLEWARE
 // body parser middleware
 app.use(express.urlencoded({
