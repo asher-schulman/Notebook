@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const todolistSchema = new mongoose.Schema({
-    item: {
+    title: {
+        type: String,
+        required: true
+    },
+    entry: {
         type: String,
         required: true
     },

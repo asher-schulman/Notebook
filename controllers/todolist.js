@@ -24,7 +24,8 @@ router.get('/new', (req, res) => {
 // create todolist item route (actually adds to DB)
 router.post('/', async (req, res) => {
     const todolist = new List({
-        item: req.body.item,
+        title: req.body.title,
+        entry: req.body.entry,
         isComplete: false
     })
     try {
@@ -38,5 +39,17 @@ router.post('/', async (req, res) => {
         })
     }
 })
+
+// edit item route (just displays form)// new list item route (just displays form)
+router.get('/:id/edit', (req, res) => {
+    res.render('todolist/edit', {
+        List: List.findById(req.params.id)
+    })
+})
+
+// edit todolist item route (actually writes to DB)
+// router.patch('/:id/edit', async (req, res) => {
+//     const todolist = List.findById(req.params.id)
+// })
 
 module.exports = router

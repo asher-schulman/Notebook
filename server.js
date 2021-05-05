@@ -47,7 +47,7 @@ app.use(express.json())
 // tell express we want to use express layouts
 app.use(expressLayouts)
 // tell express where public files will be
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'))
 // tell server which router/controller to use for which path
 app.use('/', indexRouter)
 app.use('/todolist', todolistRouter)

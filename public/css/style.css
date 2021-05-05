@@ -1,0 +1,15 @@
+body {
+    background-color: #404040;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    color: ivory;
+}
+
+a {
+    color: ivory;
+}
+
+.container {
+    max-width: 50%;
+}

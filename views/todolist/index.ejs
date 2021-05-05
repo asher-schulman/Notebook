@@ -2,10 +2,10 @@
 <br>
 <% todolist.forEach(todolist => { %>
     <div>
-        <h4><%= todolist.item %>
-        <input type="checkbox" name="isComplete" value="isComplete">
-        <button><a href="/todolist/<%= todolist.id %>/edit">Edit</a></button>
-        <button><a href="/todolist/<%= todolist.id %>/delete">Delete</a></button>
+        <h4><%= todolist.title %>
+        <input type="hidden" name="isComplete" value="isComplete">
+        <button><a href="/todolist/<%= todolist._id %>/edit">Edit</a></button>
+        <button><a href="/todolist/<%= todolist._id %>/delete">Delete</a></button>
         </h4>
     </div>
 <% }) %>
