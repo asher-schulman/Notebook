@@ -1,15 +1,24 @@
 /* 
-DARK GRAY #181721
-GRAY #272535
-LIGHT GRAY #6272a4
-WHITES #f8f8f2
+DARK PRIMARY #181721
+PRIMARY #272535
+LIGHT PRIMARY #6272a4
+WHITES #f8f9f2
+
+white text f8f8f2
+gray text 8b909a
+black nav/inputs 0c0c15
+dark gray cards/containers 171821
+gray background 1c1b28
+light gray background 262835
+
 DARK PURPLE #6272a4
 YELLOW ACCENT #f1fa8c
 */
 
 
 body {
-    background-color: #272535;
+    background: rgb(28,27,40);
+background: linear-gradient(90deg, rgba(28,27,40,1) 0%, rgba(38,40,53,1) 100%);
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -25,13 +34,27 @@ a {
 }
 
 button {
-    background-color: #6272a4;
+    color: #f8f8f2;
+}
+
+input {
+    background-color: #0c0c15;
+    color: #f8f8f2;
+}
+
+textarea {
+    background-color: #0c0c15;
+    color: #f8f8f2;
+}
+
+button {
+    background-color: #272535;
 }
 
 .container {
     border: #6272a4 2px solid;
-    background-color: #181721;
-    border-radius: 10px;
+    background-color: #171821;
+    border-radius: 15px;
     padding: 15px;
     margin: 25px;
 }
