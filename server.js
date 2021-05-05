@@ -7,6 +7,10 @@ const expressLayouts = require('express-ejs-layouts')
 const indexRouter = require('./controllers/index')
 const todolistRouter = require('./controllers/todolist')
 
+const session = require('express-session');
+const methodOverride = require('method-override');
+const bcrypt = require('bcrypt');
+
 // DB urls use whichever one works, probably local for now
 // const DATABASE_URL = 'mongodb://localhost:27017/todolist'
 // const DATABASE_URL = 'mongodb+srv://user:JHhXYBIIR0N0CWUu@todolist.svlcm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
@@ -42,6 +46,7 @@ app.set('layout', 'layouts/layout')
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(methodOverride('_method'))
 // maybe needing json parser?
 app.use(express.json())
 // tell express we want to use express layouts
@@ -51,11 +56,6 @@ app.use(express.static(__dirname + '/public'))
 // tell server which router/controller to use for which path
 app.use('/', indexRouter)
 app.use('/todolist', todolistRouter)
-
-const session = require('express-session');
-const methodOverride = require('method-override');
-const bcrypt = require('bcrypt');
-
 
 // MIDDLEWARE
 // body parser middleware

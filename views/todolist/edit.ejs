@@ -1,1 +1,7 @@
-EDIT FORM HERE
+<h2>Edit To-do List Item</h2>
+<form action="/todolist/<%= todolist.id %>?_method=PUT" method="POST">
+
+    <%- include('../partials/form_fields') %>
+    <a href="/todolist/<%= todolist.id %>">Cancel</a>
+    <button type="submit">Update</button>
+</form>

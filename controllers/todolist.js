@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 // new list item route (just displays form)
 router.get('/new', (req, res) => {
     res.render('todolist/new', {
-        List: List
+        todolist: new List()
     })
 })
 
@@ -30,8 +30,7 @@ router.post('/', async (req, res) => {
     })
     try {
         const newItem = await todolist.save()
-        res.redirect('todolist')
-        // res.redirect(`todolist/${newItem.id}`)
+        res.redirect(`todolist/${newItem.id}`)
     } catch {
         res.render('todolist/new', {
             todolist: todolist,
@@ -40,16 +39,49 @@ router.post('/', async (req, res) => {
     }
 })
 
-// edit item route (just displays form)// new list item route (just displays form)
-router.get('/:id/edit', (req, res) => {
-    res.render('todolist/edit', {
-        List: List.findById(req.params.id)
-    })
+// show route
+router.get('/:id', (req, res) => {
+    res.send('Show Specific Log ' + req.params.id)
 })
 
-// edit todolist item route (actually writes to DB)
-// router.patch('/:id/edit', async (req, res) => {
-//     const todolist = List.findById(req.params.id)
-// })
+// edit item route (just displays form)// new list item route (just displays form)
+router.get('/:id/edit', async (req, res) => {
+    const todolist = await List.findById(req.params.id)
+    try {
+        res.render('todolist/edit', {
+            todolist: todolist
+        })
+    } catch {
+        res.redirect('/todolist')
+    }
+})
+
+// edit/create todolist item route (actually writes to DB)
+router.put('/:id', async (req, res) => {
+    //defined todolist up here because i need to access it in my catch
+    let todolist
+    try {
+        todolist = await List.findById(req.params.id)
+        todolist.title = req.body.title
+        todolist.entry = req.body.entry
+        await todolist.save()
+        res.redirect(`/todolist/${todolist.id}`)
+    } catch {
+        if (todolist == null) {
+            res.redirect('/')
+        } else {
+            res.render('todolist/edit', {
+                todolist: todolist,
+                errorMessage: 'error updating entry'
+            })
+        }
+    }
+    // const todolist = List.findById(req.params.id)
+})
+
+// delete route
+router.delete('/:id', (req, res) => {
+    res.send('delete ' + req.params.id)
+})
 
 module.exports = router

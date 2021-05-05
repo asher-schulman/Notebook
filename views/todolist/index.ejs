@@ -1,11 +1,14 @@
 <h2>All To-Do List Items</h2>
 <br>
 <% todolist.forEach(todolist => { %>
-    <div>
-        <h4><%= todolist.title %>
+<div>
+    <h4><a href="/todolist/<%= todolist._id %>"><%= todolist.title %></a>
         <input type="hidden" name="isComplete" value="isComplete">
+        <button><a href="/todolist/<%= todolist._id %>">View</a></button>
         <button><a href="/todolist/<%= todolist._id %>/edit">Edit</a></button>
-        <button><a href="/todolist/<%= todolist._id %>/delete">Delete</a></button>
-        </h4>
-    </div>
+        <form method="POST" action="/todolist/<%= todolist.id %>?_method=DELETE">
+            <button type="submit">Delete</button>
+        </form>
+    </h4>
+</div>
 <% }) %>

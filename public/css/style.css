@@ -18,7 +18,7 @@ YELLOW ACCENT #f1fa8c
 
 body {
     background: rgb(28,27,40);
-background: linear-gradient(90deg, rgba(28,27,40,1) 0%, rgba(38,40,53,1) 100%);
+    background: linear-gradient(90deg, rgba(28,27,40,1) 0%, rgba(38,40,53,1) 100%);
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -60,5 +60,5 @@ button {
 }
 
 .content-container {
-    max-width: 50%;
+    max-width: 85%;
 }
