@@ -88,8 +88,10 @@ router.put('/:id', async (req, res) => {
         await todolist.save()
         res.redirect(`/todolist/${todolist.id}`)
     } catch {
+        //if we cant find a todolist with this id
         if (todolist == null) {
             res.redirect('/')
+        //otherwise, re-render the edit page with everything we had entered
         } else {
             res.render('todolist/edit', {
                 todolist: todolist,
@@ -97,12 +99,26 @@ router.put('/:id', async (req, res) => {
             })
         }
     }
-    // const todolist = List.findById(req.params.id)
 })
 
 // delete route
-router.delete('/:id', (req, res) => {
-    res.send('delete ' + req.params.id)
+router.delete('/:id', async (req, res) => {
+    //defined todolist up here because i need to access it in my catch. this is a trick i saw on the internet. not really sure why it works like this without proper variable declaration...
+    let todolist
+    try {
+        todolist = await List.findById(req.params.id)
+        todolist.title = req.body.title
+        todolist.entry = req.body.entry
+        await todolist.remove()
+        res.redirect('/todolist')
+    } catch {
+        //if we cant find a todolist with this id to remove
+        if (todolist == null) {
+            res.redirect('/')
+        } else {
+            res.redirect(`/todolist${todolist.id}`)
+        }
+    }
 })
 
 module.exports = router
