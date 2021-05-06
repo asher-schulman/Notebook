@@ -22,6 +22,27 @@ router.get('/new', (req, res) => {
 })
 
 // create todolist item route (actually adds to DB)
+
+//code using mongoose syntax
+// router.post('/', (req, res) => {
+//     const todolist = new List({
+//         title: req.body.title,
+//         entry: req.body.entry,
+//         isComplete: false
+//     })
+//     todolist.save((err, newItem) => {
+//         if (err) {
+//             res.render('todolist/new', {
+//                 todolist: todolist,
+//                 errorMessage: 'error creating new entry'
+//             })
+//         } else {
+//             res.redirect(`todolist`)
+//         }
+//     })
+// for me, using async await made more sense thinking about how the requests are actually happening and for my tiny brain to keep track of each little step. it's basically just tells the function after it to be asyncronous and then await happens after the functions begins. i think it also ended up saving me a bit of code length, but i prefer it to the nested callbacks in the .save() method using mongoose's syntax
+
+// code as an async/await
 router.post('/', async (req, res) => {
     const todolist = new List({
         title: req.body.title,

@@ -1,1 +1,4 @@
-<%= errorMessage %>
+<!-- turns out i need to only load this if an error message exists, aka if it's NOT null -->
+<% if (locals.errorMessage != null) { %>
+    <%= errorMessage %>
+<% } %>
