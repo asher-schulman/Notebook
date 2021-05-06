@@ -61,8 +61,16 @@ router.post('/', async (req, res) => {
 })
 
 // show route
-router.get('/:id', (req, res) => {
-    res.send('Show Specific Log ' + req.params.id)
+router.get('/:id', async (req, res) => {
+    const todolist = await List.findById(req.params.id)
+    try {
+        res.render('todolist/show', {
+            todolist: todolist
+        })
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
 })
 
 // edit item route (just displays form)// new list item route (just displays form)

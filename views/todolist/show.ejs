@@ -1,0 +1,7 @@
+<h2><%= todolist.title %></h2>
+<form method="POST" action="/todolist/<%= todolist.id %>?_method=DELETE">
+    <button><a href="/todolist/<%= todolist._id %>/edit">Edit</a></button>
+    <button type="submit">Delete</button>
+</form>
+<p><%= todolist.entry %></p>
+</h4>
