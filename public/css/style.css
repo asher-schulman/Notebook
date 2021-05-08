@@ -95,12 +95,21 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: #f1fa8c;
+}
+
 button {
     color: #f8f8f2;
     margin: 0px 3px;
     padding: 5px 10px;
     border-radius: 15px;
     background-color: #272535;
+}
+
+button:hover {
+    color: #f1fa8c;
+    border: #6272a4 2px solid;
 }
 
 input {
