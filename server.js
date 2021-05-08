@@ -20,7 +20,8 @@ const app = express();
 // import mongoose
 const mongoose = require('mongoose');
 //tells mongoose what databse to try and connect to. establishes how our backend server communicates with the back end database
-mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/todolist', {
+// mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/todolist', {
+mongoose.connect('mongodb://localhost:27017/todolist', {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true
@@ -63,6 +64,6 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-app.listen(process.env.PORT||3000), () => {
+app.listen(process.env.PORT || 3000), () => {
     console.log(`listening on port 3000`)
 }
