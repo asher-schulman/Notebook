@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // DEPENDENCIES
 // import express
 const express = require('express');
@@ -11,6 +13,7 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const bcrypt = require('bcrypt');
 
+
 // DB urls use whichever one works, probably local for now
 // const DATABASE_URL = 'mongodb://localhost:27017/todolist'
 //begins and initiallized our express framework (kinda 'starts' the server)
@@ -21,7 +24,7 @@ const app = express();
 const mongoose = require('mongoose');
 //tells mongoose what databse to try and connect to. establishes how our backend server communicates with the back end database
 // mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/todolist', {
-mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/todolist', {
+mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true
