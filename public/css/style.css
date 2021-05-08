@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 /* 
 DARK PRIMARY #181721
 PRIMARY #272535
@@ -15,10 +17,68 @@ DARK PURPLE #6272a4
 YELLOW ACCENT #f1fa8c
 */
 
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+}
+
+nav {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: start;
+    justify-content: center;
+    list-style-type: none;
+}
+
+nav li {
+    padding: 5px 0px;
+}
+
+nav a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+/* underline part */
+nav a::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #6272a4;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+/* text colo change part */
+nav a:hover {
+    color: #f1fa8c;
+}
+
+/* underline animation */
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ___ */
 
 body {
-    background: rgb(28,27,40);
-    background: linear-gradient(90deg, rgba(28,27,40,1) 0%, rgba(38,40,53,1) 100%);
+    background: rgb(28, 27, 40);
+    background: linear-gradient(90deg, rgba(28, 27, 40, 1) 0%, rgba(38, 40, 53, 1) 100%);
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -26,29 +86,38 @@ body {
 }
 
 h2 {
+    font-size: 36pt;
     color: #f1fa8c
 }
 
 a {
     color: #f8f8f2;
+    text-decoration: none;
 }
 
 button {
     color: #f8f8f2;
+    margin: 0px 3px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background-color: #272535;
 }
 
 input {
-    background-color: #0c0c15;
+    border: #6272a4 2px solid;
+    background-color: #171821;
+    border-radius: 15px;
+    margin: 5px;
     color: #f8f8f2;
 }
 
 textarea {
-    background-color: #0c0c15;
+    border: #6272a4 2px solid;
+    background-color: #171821;
+    border-radius: 15px;
     color: #f8f8f2;
-}
-
-button {
-    background-color: #272535;
+    margin: 5px;
+    width: 100%;
 }
 
 .container {
@@ -57,6 +126,28 @@ button {
     border-radius: 15px;
     padding: 15px;
     margin: 25px;
+}
+
+.card {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: #6272a4 solid 2px;
+    background-color: #171821;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px
+}
+
+.show-card {
+    border: #6272a4 2px solid;
+    background-color: #171821;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .content-container {

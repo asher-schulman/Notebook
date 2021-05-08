@@ -13,13 +13,10 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const bcrypt = require('bcrypt');
 
-
 // DB urls use whichever one works, probably local for now
 // const DATABASE_URL = 'mongodb://localhost:27017/todolist'
 //begins and initiallized our express framework (kinda 'starts' the server)
 const app = express();
-
-
 
 // import mongoose
 const mongoose = require('mongoose');

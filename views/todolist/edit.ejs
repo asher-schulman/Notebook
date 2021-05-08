@@ -2,6 +2,8 @@
 <form action="/todolist/<%= todolist.id %>?_method=PUT" method="POST">
 
     <%- include('../partials/form_fields') %>
-    <a href="/todolist/<%= todolist.id %>">Cancel</a>
+    <button>
+        <a href="/todolist/<%= todolist.id %>">Cancel</a>
+    </button>
     <button type="submit">Update</button>
 </form>
