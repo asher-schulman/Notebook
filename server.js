@@ -20,6 +20,7 @@ const bcrypt = require('bcrypt');
 const app = express();
 
 
+
 // import mongoose
 const mongoose = require('mongoose');
 //tells mongoose what databse to try and connect to. establishes how our backend server communicates with the back end database
