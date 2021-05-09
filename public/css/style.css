@@ -27,6 +27,7 @@ nav {
     justify-content: left;
     align-items: center;
     text-align: center;
+    margin-right: 200px;
 }
 
 nav ul {
@@ -133,6 +134,17 @@ textarea {
     color: #f8f8f2;
     margin: 5px;
     width: 100%;
+}
+
+header {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.logo {
+    display: flex;
+    align-content:center;
+    border-radius: 8px;
 }
 
 .container {
