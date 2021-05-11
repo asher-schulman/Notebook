@@ -60,10 +60,6 @@ app.use('/', indexRouter)
 app.use('/todolist', todolistRouter)
 
 // MIDDLEWARE
-// body parser middleware
-app.use(express.urlencoded({
-    extended: true
-}));
 
 app.listen(process.env.PORT || 3000), () => {
     console.log(`listening on port 3000`)
