@@ -172,6 +172,10 @@ header {
 
 }
 
+.bold-word {
+    color: #f1fa8c;
+}
+
 .container {
     border: #6272a4 2px solid;
     background-color: #171821;
