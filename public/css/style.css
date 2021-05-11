@@ -27,7 +27,7 @@ nav {
     justify-content: left;
     align-items: center;
     text-align: center;
-    margin-right: 200px;
+    margin-right: 50px;
 }
 
 nav ul {
@@ -103,10 +103,10 @@ a:hover {
 button {
     color: #f8f8f2;
     display: inline-block;
-	transition-duration: .5s;
-	transition-property: transform;
-    margin: .4em;
-    padding: 1em;
+    transition-duration: .5s;
+    transition-property: transform;
+    margin: .2em;
+    padding: .5em;
     cursor: pointer;
     text-decoration: none;
     border-radius: 15px;
@@ -133,7 +133,7 @@ textarea {
     border-radius: 15px;
     color: #f8f8f2;
     margin: 5px;
-    width: 100%;
+    max-width: 100%;
 }
 
 header {
@@ -141,9 +141,19 @@ header {
     flex-flow: row wrap;
 }
 
+.error-message {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: tomato
+}
+
+.body-container {
+    margin-top: 20px;
+}
+
 .logo {
     display: flex;
-    align-content:center;
+    align-content: center;
     border-radius: 8px;
 }
 
@@ -175,8 +185,27 @@ header {
     margin: 5px;
     font-size: 1.5rem;
     text-align: center;
+    max-width: 1200px;
 }
 
 .content-container {
-    width: 85%;
+    max-width: 1200px;
+}
+
+@media only screen and (max-width : 800px) {
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+    
+    nav {
+        margin-right: 25px;
+    }
+
+    .content-container {
+        width: 100%;
+    }
 }

@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
     } catch {
         res.render('todolist/new', {
             todolist: todolist,
-            errorMessage: 'error creating new entry'
+            errorMessage: 'error creating new Note. the title and note cannot be left blank.'
         })
     }
 })
@@ -103,7 +103,7 @@ router.put('/:id', async (req, res) => {
         } else {
             res.render('todolist/edit', {
                 todolist: todolist,
-                errorMessage: 'error updating entry'
+                errorMessage: 'error updating Note. make sure the title and note are not left blank.'
             })
         }
     }
