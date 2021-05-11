@@ -22,17 +22,9 @@ Stack: MongoDB Atlas | Express.js | Embedded Javascript | Node.js
     
 4.  At least one Github commit per class day.
     
-5.  Be deployed online and accessible to the public via Heroku
+5.  Be deployed online and accessible to the public via Heroku - [notebook](https://git-this-notebook.herokuapp.com/)
     
 6.  README.md file in the github repo with public link
-    
-
-## Features
-
-- shows all characters in the Rick & Morty Universe in pages of 20
-- search by name for characters
-- filter by alive or dead characters
-- next/previous buttons to display next 20 results (search and filter stays applied)
 
 * * *
 
