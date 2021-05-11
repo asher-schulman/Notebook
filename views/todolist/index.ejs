@@ -4,7 +4,7 @@
 <div class="card">
     <h4><%= todolist.title %></h4>
     <input type="hidden" name="isComplete" value="isComplete">
-    <form method="POST" action="/todolist/<%= todolist.id %>?_method=DELETE">
+    <form class="buttons" method="POST" action="/todolist/<%= todolist.id %>?_method=DELETE">
         <button><a href="/todolist/<%= todolist._id %>">View</a></button>
         <button><a href="/todolist/<%= todolist._id %>/edit">Edit</a></button>
         <button type="submit">Delete</button>
