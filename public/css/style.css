@@ -239,7 +239,8 @@ header {
     }
 
     .logo {
-        width: 275px;
+        /* width: 275px; */
+        width: 70%;
     }
 
     .card {
