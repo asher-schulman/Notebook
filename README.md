@@ -5,7 +5,7 @@
 ### *created for General Assembly's SEI Course*
 ### https://git-this-notebook.herokuapp.com 
 
-Goal: Create a full-stack CRUD application using the [free Rick and Morty API](https://rickandmortyapi.com)
+Goal: Create a full-stack CRUD application
 
 Languages Used: HTML | CSS | Javascript
 
