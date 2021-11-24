@@ -9,7 +9,7 @@ Goal: Create a full-stack CRUD application
 
 Languages Used: HTML | CSS | Javascript
 
-Stack: MongoDB Atlas | Express.js | Embedded Javascript | Node.js
+Stack: MongoDB Atlas | Express.js | Embedded Javascript (EJS) | Node.js
 
 * * *
 
