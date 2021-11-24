@@ -1,10 +1,11 @@
-# Notepad
+# Notebook
 
 # <img src="public/assets/logo.jpg" alt="logo.jpg" width="150" height="150" class="jop-noMdConv">
 
 ### *created for General Assembly's SEI Course*
+### https://git-this-notebook.herokuapp.com 
 
-Goal: Create a full-stack CRUD applIcation [](https://rickandmortyapi.com)
+Goal: Create a full-stack CRUD application
 
 Languages Used: HTML | CSS | Javascript
 
